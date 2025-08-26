@@ -259,10 +259,16 @@
         margin: 0;
         padding: 0;
         overflow: visible;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
+      /* Reset flex centering to avoid top whitespace */
       main {
+        display: block;
         padding: 0;
+        justify-content: initial;
+        align-items: initial;
       }
 
       table {
@@ -270,6 +276,7 @@
         max-width: 100%;
         box-shadow: none;
         border-radius: 0;
+        margin: 0;
         page-break-before: avoid;
         page-break-after: avoid;
         page-break-inside: avoid;
@@ -304,13 +311,21 @@
       }
     }
 
-    @media print and (max-width: 600px) {
+      @media print and (max-width: 600px) {
         html, body { width: auto; }
+
+        /* Reset flex centering on mobile too */
+        main {
+          display: block;
+          padding: 0;
+          justify-content: initial;
+          align-items: initial;
+        }
 
         /* Make rows more compact */
         th, td { padding: 10px 8px; line-height: 1.2; }
 
-        table { width: 100%; max-width: 100%; table-layout: fixed; page-break-before: avoid; page-break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+        table { width: 100%; max-width: 100%; table-layout: fixed; margin: 0; page-break-before: avoid; page-break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
         tr, thead, tbody, th, td { page-break-inside: avoid !important; break-inside: avoid !important; }
         tr { page-break-after: auto; }
 
