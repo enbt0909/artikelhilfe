@@ -3,29 +3,24 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Artikelhilfe Elegantes Design</title>
+  <title>Artikelhilfe - Tabelle</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #f0f4f8, #e0e7ef);
-      background-image: url('./alphabet.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background: linear-gradient(120deg, #f0f4f8 0%, #e0e7ef 100%);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      color: #374151;
     }
 
     header {
-      background: #ffffffee;
-      padding: 20px 40px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
+      background: #ffffffee;
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -35,210 +30,245 @@
       font-size: 2em;
       font-weight: 700;
       color: #2563eb;
-      margin: 0;
+      margin: 0 0 10px 0;
       letter-spacing: 1px;
     }
 
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      font-weight: 600;
+    }
+
     nav a {
-      margin-left: 25px;
       text-decoration: none;
       color: #374151;
-      font-weight: 600;
       transition: color 0.2s, transform 0.2s;
     }
 
     nav a:hover {
       color: #2563eb;
       transform: translateY(-2px);
+      text-shadow: 0 2px 8px rgba(37, 99, 235, 0.18);
+      border-radius: 6px;
+    }
+
+    #warning {
+      color: #e11d48;
+      font-weight: 600;
+      margin-top: 10px;
+      visibility: hidden;
     }
 
     main {
       flex: 1;
       display: flex;
       justify-content: center;
-      padding: 40px 20px;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .print-btn {
+      position: fixed;
+      top: 25px;
+      right: 26px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: white;
+      background: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      z-index: 2000;
+      transition: background 0.2s;
+    }
+
+    .print-btn:hover {
+      background: #0056b3;
     }
 
     table {
       border-collapse: collapse;
       width: 100%;
-      max-width: 900px;
+      max-width: 95vw;
       table-layout: fixed;
-      border-radius: 12px;
-      overflow: hidden;
       background: #fff;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    table:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 30px rgba(60, 60, 90, 0.15), 0 2px 8px rgba(60, 60, 90, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
     }
 
     th,
     td {
+      border: 1px solid #d1d5db;
+      padding: 16px 12px;
       text-align: center;
-      padding: 18px 14px;
-      vertical-align: middle;
       word-wrap: break-word;
-      transition: all 0.3s ease;
+      line-height: 1.4;
     }
 
     th {
-      font-size: 2.5em;
+      font-size: 3em;
       font-weight: 700;
       letter-spacing: 1px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
 
-    th.blue {
+    td {
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    .blue {
       color: #2563eb;
     }
 
-    th.red {
+    .red {
       color: #e11d48;
     }
 
-    th.green {
+    .green {
       color: #10b981;
     }
 
     td:nth-child(1) {
-      background: linear-gradient(to bottom, #e0e7ff, #c7d2fe);
+      background: #e0e7ff;
       color: #1e40af;
-      font-weight: 600;
-      font-size: 1.25em;
-      line-height: 1.5em;
     }
 
     td:nth-child(2) {
-      background: linear-gradient(to bottom, #ffe4e6, #fecdd3);
+      background: #ffe4e6;
       color: #be123c;
-      font-weight: 600;
-      font-size: 1.25em;
-      line-height: 1.5em;
     }
 
     td:nth-child(3) {
-      background: linear-gradient(to bottom, #d1fae5, #a7f3d0);
+      background: #d1fae5;
       color: #047857;
-      font-weight: 600;
-      font-size: 1.25em;
-      line-height: 1.5em;
-    }
-
-    td {
-      color: #374151;
-      font-size: 1.25em;
-      line-height: 1.5em;
     }
 
     table tr:nth-child(even) td {
-      background: rgba(249, 250, 251, 0.65);
+      background: #f9fafb;
     }
 
     table tr:hover td {
-      background: rgba(238, 242, 247, 0.85);
-      transform: scale(1.01);
-    }
-
-    /* Drucken-Knopf unten rechts Webseite */
-    .print-btn {
-      position: fixed;
-      bottom: 16px;
-      right: 26px;
-      z-index: 9999;
-      padding: 12px 24px;
-      font-size: 1.15em;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .print-btn:hover {
-      background: linear-gradient(135deg, #1e40af, #2563eb);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      background: #eef2f7;
+      transition: background 0.3s ease;
     }
 
     footer {
-      background: #ffffffee;
-      padding: 20px 40px;
       text-align: center;
-      font-size: 0.95em;
-      color: #374151;
-      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+      padding: 12px 0;
+      font-size: 0.9em;
+      background: #ffffffee;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
     }
 
     footer a {
-      color: #2563eb;
+      color: #374151;
       text-decoration: none;
-      margin-left: 5px;
-      font-weight: 600;
+      transition: color 0.2s, text-decoration 0.2s, transform 0.4s cubic-bezier(.68, -0.55, .27, 1.55);
     }
 
     footer a:hover {
+      color: #2563eb;
+      transform: translateX(-20px);
       text-decoration: underline;
+      animation: slideInLeft 0.4s forwards;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-20px);
+        opacity: 0.5;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .github-div {
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    footer img {
+      filter: invert(20%) sepia(10%) saturate(500%) hue-rotate(180deg) brightness(90%) contrast(85%);
+      transition: filter 0.2s;
+    }
+
+    footer img:hover {
+      animation: bounce 0.7s;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+
+      20% {
+        transform: translateY(-8px);
+      }
+
+      40% {
+        transform: translateY(-1px);
+      }
+
+      60% {
+        transform: translateY(-4px);
+      }
+
+      80% {
+        transform: translateY(-6px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
     }
 
     @media print {
 
-      .print-btn,
       header,
-      footer {
+      footer,
+      .print-btn {
         display: none;
       }
-    }
 
-    /* Responsive Anpassungen */
-    @media (max-width: 900px) {
+      body {
+        background: none;
+        margin: 0;
+        padding: 0;
+      }
+
       table {
-        font-size: 1em;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
       }
 
       th {
-        font-size: 2em;
+        font-size: 2.5em;
       }
 
       td {
-        font-size: 1.15em;
-        line-height: 1.4em;
-        padding: 14px 10px;
+        font-size: 1.9em;
       }
 
-      header h1 {
-        font-size: 1.6em;
-      }
-    }
-
-    @media (max-width: 600px) {
-      table {
-        font-size: 0.9em;
+      table tr:nth-child(even) td,
+      table tr:hover td,
+      td:nth-child(1),
+      td:nth-child(2),
+      td:nth-child(3) {
+        background: none;
       }
 
-      th {
-        font-size: 1.6em;
-      }
-
-      td {
-        font-size: 1em;
-        line-height: 1.3em;
-        padding: 10px 8px;
-      }
-
-      header h1 {
-        font-size: 1.4em;
-      }
-
-      nav a {
-        margin-left: 15px;
-        font-size: 0.9em;
+      @page {
+        size: A4 portrait;
+        margin: 15mm 0 15mm 0;
       }
     }
   </style>
@@ -248,13 +278,15 @@
   <header>
     <h1>Artikelhilfe</h1>
     <nav>
-      <a href="#">Start</a>
-      <a href="#">Übungen</a>
-      <a href="#">Kontakt</a>
+      <a href="#" data-msg="Ich bringe dich zur Startseite.">Start</a>
+      <a href="#" data-msg="Lass uns gemeinsam üben!">Übungen</a>
+      <!-- <a href="#" data-msg="Hier findest du die Kontaktdaten.">Kontakt</a> Später wieder einblenden. -->
     </nav>
+    <p id="warning"></p>
   </header>
 
   <main>
+    <button onclick="window.print()" class="print-btn">🖨️ Drucken</button>
     <table>
       <tr>
         <th class="blue">Der</th>
@@ -307,14 +339,33 @@
         <td></td>
       </tr>
     </table>
-
-    <button onclick="window.print()" class="print-btn">🖨️ Drucken</button>
   </main>
 
   <footer>
-    &copy; Alle Rechte vorbehalten | GitHub:
-    <a href="https://github.com/enbt0909" target="_blank">enbt0909</a>
+    <span class="github-div">
+      &copy;
+      <a href="https://github.com/enbt0909" target="_blank">
+
+        enbt-digital <img src="./github.png" alt="GitHub Logo" title="GitHub"
+          style="width:16px; vertical-align:middle;"> | Alle Rechte vorbehalten
+      </a>
+    </span>
   </footer>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const warning = document.getElementById('warning');
+        warning.textContent = link.dataset.msg || "Ich habe zur Zeit keine Funktion.";
+        warning.style.visibility = "visible";
+        setTimeout(() => {
+          warning.style.visibility = "hidden";
+          warning.textContent = "";
+        }, 2000);
+      });
+    });
+  </script>
 </body>
 
 </html>
