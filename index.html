@@ -253,7 +253,8 @@
       }
 
       /* Ensure the printable area is one page and avoid overflows */
-      html, body {
+      html,
+      body {
         width: 210mm;
         background: none;
         margin: 0;
@@ -283,7 +284,11 @@
         break-inside: avoid;
       }
 
-      th, td, tr, thead, tbody {
+      th,
+      td,
+      tr,
+      thead,
+      tbody {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
@@ -294,6 +299,7 @@
 
       td {
         font-size: 2em;
+        padding: 5px;
       }
 
       /* Remove background colors for clean print */
@@ -311,30 +317,66 @@
       }
     }
 
-      @media print and (max-width: 600px) {
-        html, body { width: auto; }
+    @media print and (max-width: 600px) {
 
-        /* Reset flex centering on mobile too */
-        main {
-          display: block;
-          padding: 0;
-          justify-content: initial;
-          align-items: initial;
-        }
-
-        /* Make rows more compact */
-        th, td { padding: 10px 8px; line-height: 1.2; }
-
-        table { width: 100%; max-width: 100%; table-layout: fixed; margin: 0; page-break-before: avoid; page-break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
-        tr, thead, tbody, th, td { page-break-inside: avoid !important; break-inside: avoid !important; }
-        tr { page-break-after: auto; }
-
-        /* Slightly smaller fonts to ensure one page on small devices */
-        th { font-size: 2.0em; }
-        td { font-size: 1.6em; }
-
-        @page { size: A4 portrait; margin: 3mm; }
+      html,
+      body {
+        width: auto;
       }
+
+      /* Reset flex centering on mobile too */
+      main {
+        display: block;
+        padding: 0;
+        justify-content: initial;
+        align-items: initial;
+      }
+
+      /* Make rows more compact */
+      th,
+      td {
+        padding: 10px 8px;
+        line-height: 1.2;
+      }
+
+      table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+        margin: 0;
+        page-break-before: avoid;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      tr,
+      thead,
+      tbody,
+      th,
+      td {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      tr {
+        page-break-after: auto;
+      }
+
+      /* Slightly smaller fonts to ensure one page on small devices */
+      th {
+        font-size: 2.0em;
+      }
+
+      td {
+        font-size: 1.6em;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 3mm;
+      }
+    }
   </style>
 </head>
 
