@@ -4,7 +4,335 @@
 <head>
   <meta charset="UTF-8">
   <title>Artikelhilfe - Tabelle</title>
-  <link rel="stylesheet" href="./styles.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #f0f4f8 0%, #e0e7ef 100%);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-image: url('./natur.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #ffffffee;
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2em;
+      font-weight: 700;
+      color: #2563eb;
+      margin: 0 0 10px 0;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      font-weight: 600;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2563eb;
+      font-size: 24px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+      transform: translateY(-2px);
+      text-shadow: 0 2px 8px rgba(37, 99, 235, 0.18);
+      border-radius: 6px;
+    }
+
+    #warning {
+      color: #e11d48;
+      font-weight: 600;
+      margin-top: 10px;
+      visibility: hidden;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .print-btn {
+      position: fixed;
+      top: 40px;
+      right: 16px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: white;
+      background: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      z-index: 2000;
+      transition: background 0.2s;
+    }
+
+    .print-btn:hover {
+      background: #0056b3;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 95vw;
+      table-layout: fixed;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(60, 60, 90, 0.15), 0 2px 8px rgba(60, 60, 90, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      border: 1px solid #d1d5db;
+      padding: 16px 12px;
+      text-align: center;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+
+    th {
+      font-size: 3em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    td {
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    .blue {
+      color: #2563eb;
+    }
+
+    .red {
+      color: #e11d48;
+    }
+
+    .green {
+      color: #10b981;
+    }
+
+    td:nth-child(1) {
+      background: #e0e7ff;
+      color: #1e40af;
+    }
+
+    td:nth-child(2) {
+      background: #ffe4e6;
+      color: #be123c;
+    }
+
+    td:nth-child(3) {
+      background: #d1fae5;
+      color: #047857;
+    }
+
+    table tr:nth-child(even) td {
+      background: #f9fafb;
+    }
+
+    table tr:hover td {
+      background: #eef2f7;
+      transition: background 0.3s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 12px 0;
+      font-size: 0.9em;
+      /* background: rgba(122, 153, 255, 0.3); */
+      background: #fdfdff;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    footer a {
+      color: #525252;
+      text-decoration: none;
+      transition: color 0.2s, text-decoration 0.2s, transform 0.4s cubic-bezier(.68, -0.55, .27, 1.55);
+    }
+
+    footer a:hover {
+      color: #1e40af;
+      transform: translateX(-20px);
+      text-decoration: underline;
+      animation: slideInLeft 0.4s forwards;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-20px);
+        opacity: 0.5;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .github-div {
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    footer img {
+      filter: invert(20%) sepia(10%) saturate(500%) hue-rotate(180deg) brightness(90%) contrast(85%);
+      transition: filter 0.2s;
+    }
+
+    footer img:hover {
+      animation: bounce 0.7s;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+
+      20% {
+        transform: translateY(-8px);
+      }
+
+      40% {
+        transform: translateY(-1px);
+      }
+
+      60% {
+        transform: translateY(-4px);
+      }
+
+      80% {
+        transform: translateY(-6px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @media print {
+
+      header,
+      footer,
+      .print-btn {
+        display: none;
+      }
+
+      /* Ensure the printable area is one page and avoid overflows */
+      html, body {
+        width: 210mm;
+        background: none;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      table {
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-before: avoid;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      th, td, tr, thead, tbody {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      th {
+        font-size: 2.6em;
+      }
+
+      td {
+        font-size: 2em;
+      }
+
+      /* Remove background colors for clean print */
+      table tr:nth-child(even) td,
+      table tr:hover td,
+      td:nth-child(1),
+      td:nth-child(2),
+      td:nth-child(3) {
+        background: none;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 5mm 5mm 5mm 5mm;
+      }
+    }
+
+    @media print and (max-width: 600px) {
+      /* On mobile printers/PDF, avoid fixed width to prevent overflow */
+      html, body {
+        width: auto;
+      }
+
+      main { padding: 0; }
+
+      table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      th, td, tr, thead, tbody {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      /* Slightly smaller fonts to ensure one page on small devices */
+      th { font-size: 2.2em; }
+      td { font-size: 1.7em; }
+
+      /* Keep minimal margins on page */
+      @page { size: A4 portrait; margin: 5mm; }
+    }
+  </style>
 </head>
 
 <body>
@@ -85,7 +413,20 @@
     </span>
   </footer>
 
-  <script src="./main.js"></script>
+  <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const warning = document.getElementById('warning');
+        warning.textContent = link.dataset.msg || "Ich habe zur Zeit keine Funktion.";
+        warning.style.visibility = "visible";
+        setTimeout(() => {
+          warning.style.visibility = "hidden";
+          warning.textContent = "";
+        }, 2000);
+      });
+    });
+  </script>
 </body>
 
 </html>
