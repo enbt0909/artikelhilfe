@@ -305,33 +305,13 @@
     }
 
     @media print and (max-width: 600px) {
-      /* On mobile printers/PDF, avoid fixed width to prevent overflow */
-      html, body {
-        width: auto;
-      }
-
-      main { padding: 0; }
-
-      table {
-        width: 100%;
-        max-width: 100%;
-        table-layout: fixed;
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
-
-      th, td, tr, thead, tbody {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-      }
-
-      /* Slightly smaller fonts to ensure one page on small devices */
-      th { font-size: 2.2em; }
-      td { font-size: 1.7em; }
-
-      /* Keep minimal margins on page */
-      @page { size: A4 portrait; margin: 5mm; }
-    }
+  html, body { width: auto; }
+  table { width: 100%; max-width: 100%; table-layout: fixed; break-inside: avoid; }
+  th, td, tr, thead, tbody { break-inside: avoid !important; }
+  th { font-size: 2.2em; }
+  td { font-size: 1.7em; }
+  @page { size: A4 portrait; margin: 5mm; }
+}
   </style>
 </head>
 
