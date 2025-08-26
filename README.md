@@ -1,2 +1,2 @@
-# Artikelhilfe
-Die Endungen, die helfen Artikel zu verstehen.
+# Deutsche-Artikeln-und-Endungen
+Deutsche Artikeln und Endungen

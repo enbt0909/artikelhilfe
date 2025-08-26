@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Artikelhilfe Elegantes Design</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #e0e7ef);
+      background-image: url('./alphabet.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #374151;
+    }
+
+    header {
+      background: #ffffffee;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2em;
+      font-weight: 700;
+      color: #2563eb;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 600;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 900px;
+      table-layout: fixed;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    table:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.15);
+    }
+
+    th,
+    td {
+      text-align: center;
+      padding: 18px 14px;
+      vertical-align: middle;
+      word-wrap: break-word;
+      transition: all 0.3s ease;
+    }
+
+    th {
+      font-size: 2.5em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    th.blue {
+      color: #2563eb;
+    }
+
+    th.red {
+      color: #e11d48;
+    }
+
+    th.green {
+      color: #10b981;
+    }
+
+    td:nth-child(1) {
+      background: linear-gradient(to bottom, #e0e7ff, #c7d2fe);
+      color: #1e40af;
+      font-weight: 600;
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+
+    td:nth-child(2) {
+      background: linear-gradient(to bottom, #ffe4e6, #fecdd3);
+      color: #be123c;
+      font-weight: 600;
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+
+    td:nth-child(3) {
+      background: linear-gradient(to bottom, #d1fae5, #a7f3d0);
+      color: #047857;
+      font-weight: 600;
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+
+    td {
+      color: #374151;
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+
+    table tr:nth-child(even) td {
+      background: rgba(249, 250, 251, 0.65);
+    }
+
+    table tr:hover td {
+      background: rgba(238, 242, 247, 0.85);
+      transform: scale(1.01);
+    }
+
+    /* Drucken-Knopf unten rechts Webseite */
+    .print-btn {
+      position: fixed;
+      bottom: 16px;
+      right: 26px;
+      z-index: 9999;
+      padding: 12px 24px;
+      font-size: 1.15em;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .print-btn:hover {
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    footer {
+      background: #ffffffee;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 0.95em;
+      color: #374151;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin-left: 5px;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media print {
+
+      .print-btn,
+      header,
+      footer {
+        display: none;
+      }
+    }
+
+    /* Responsive Anpassungen */
+    @media (max-width: 900px) {
+      table {
+        font-size: 1em;
+      }
+
+      th {
+        font-size: 2em;
+      }
+
+      td {
+        font-size: 1.15em;
+        line-height: 1.4em;
+        padding: 14px 10px;
+      }
+
+      header h1 {
+        font-size: 1.6em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      table {
+        font-size: 0.9em;
+      }
+
+      th {
+        font-size: 1.6em;
+      }
+
+      td {
+        font-size: 1em;
+        line-height: 1.3em;
+        padding: 10px 8px;
+      }
+
+      header h1 {
+        font-size: 1.4em;
+      }
+
+      nav a {
+        margin-left: 15px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Artikelhilfe</h1>
+    <nav>
+      <a href="#">Start</a>
+      <a href="#">Übungen</a>
+      <a href="#">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <table>
+      <tr>
+        <th class="blue">Der</th>
+        <th class="red">Die</th>
+        <th class="green">Das</th>
+      </tr>
+      <tr>
+        <td>Männliche Personen, Tiere, Berufe</td>
+        <td>Weibliche Personen, Tiere, Berufe</td>
+        <td>-chen</td>
+      </tr>
+      <tr>
+        <td>Tage und Monate</td>
+        <td>-ei</td>
+        <td>-lein</td>
+      </tr>
+      <tr>
+        <td>Jahreszeiten, Himmelsrichtungen</td>
+        <td>-heit <br> -keit</td>
+        <td>-erl</td>
+      </tr>
+      <tr>
+        <td>Alkohol</td>
+        <td>-schaft</td>
+        <td>-ment</td>
+      </tr>
+      <tr>
+        <td>-ling</td>
+        <td>-ung</td>
+        <td>-nis</td>
+      </tr>
+      <tr>
+        <td>-or</td>
+        <td>-tät <br> -ik</td>
+        <td>-um</td>
+      </tr>
+      <tr>
+        <td>-us</td>
+        <td>-ur</td>
+        <td>Infinitiv</td>
+      </tr>
+      <tr>
+        <td>-er</td>
+        <td>-ion</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>-e</td>
+        <td></td>
+      </tr>
+    </table>
+
+    <button onclick="window.print()" class="print-btn">🖨️ Drucken</button>
+  </main>
+
+  <footer>
+    &copy; Alle Rechte vorbehalten | GitHub:
+    <a href="https://github.com/enbt0909" target="_blank">enbt0909</a>
+  </footer>
+</body>
+
+</html>
