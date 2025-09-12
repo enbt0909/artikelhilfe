@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Artikelhilfe - Tabelle</title>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <style>
     *,
     *::before,
@@ -287,7 +288,8 @@
         box-shadow: none;
         border-radius: 0;
         margin: 0 !important;
-        margin-bottom: 0 !important; /* avoid overflow that causes blank page */
+        margin-bottom: 0 !important;
+        /* avoid overflow that causes blank page */
         position: static;
         transform: none;
         page-break-before: avoid;
@@ -334,80 +336,81 @@
       }
     }
 
-     @media print and (max-width: 600px) {
+    @media print and (max-width: 600px) {
 
-       html,
-       body {
-         width: auto;
-         height: auto;
-         margin: 0;
-         padding: 0;
-       }
+      html,
+      body {
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+      }
 
-       /* Disable flex layout and min-height on body for print (mobile) */
-       body {
-         display: block !important;
-         min-height: auto !important;
-         background-image: none !important;
-       }
+      /* Disable flex layout and min-height on body for print (mobile) */
+      body {
+        display: block !important;
+        min-height: auto !important;
+        background-image: none !important;
+      }
 
-       /* Reset flex centering on mobile too */
-       main {
-         display: block;
-         margin: 0 !important;
-         padding: 0 !important;
-         justify-content: initial;
-         align-items: initial;
-       }
+      /* Reset flex centering on mobile too */
+      main {
+        display: block;
+        margin: 0 !important;
+        padding: 0 !important;
+        justify-content: initial;
+        align-items: initial;
+      }
 
-       /* Make rows compact without shrinking fonts */
-       th {
+      /* Make rows compact without shrinking fonts */
+      th {
         font-size: 3.4em;
-       }
+      }
 
-       td {
+      td {
         font-size: 2.8em;
-       }
+      }
 
-       table {
-         width: 100%;
-         max-width: 100%;
-         table-layout: fixed;
-         margin: 0 !important;
-         margin-bottom: -4mm !important; /* mobile: slightly smaller nudge */
-         position: static;
-         transform-origin: top left;
-         transform: scaleY(1.02);
-         page-break-before: avoid;
-         page-break-after: avoid;
-         page-break-inside: avoid;
-         break-inside: avoid;
-       }
+      table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+        margin: 0 !important;
+        margin-bottom: -4mm !important;
+        /* mobile: slightly smaller nudge */
+        position: static;
+        transform-origin: top left;
+        transform: scaleY(1.02);
+        page-break-before: avoid;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
 
-       /* Slightly increase bottom padding of last row (mobile) */
-       tbody tr:last-child td {
-         padding-bottom: 20px !important;
-       }
+      /* Slightly increase bottom padding of last row (mobile) */
+      tbody tr:last-child td {
+        padding-bottom: 20px !important;
+      }
 
-       tr,
-       thead,
-       tbody,
-       th,
-       td {
-         page-break-inside: avoid !important;
-         break-inside: avoid !important;
-       }
+      tr,
+      thead,
+      tbody,
+      th,
+      td {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
 
-       tr {
-         page-break-after: auto;
-       }
+      tr {
+        page-break-after: auto;
+      }
 
-       /* Keep your chosen font sizes; margins minimal */
-       @page {
-         size: A4 portrait;
-         margin: 1mm 1mm 1mm 1mm;
-       }
-     }
+      /* Keep your chosen font sizes; margins minimal */
+      @page {
+        size: A4 portrait;
+        margin: 1mm 1mm 1mm 1mm;
+      }
+    }
   </style>
 </head>
 
